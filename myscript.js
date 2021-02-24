@@ -1,20 +1,22 @@
 f = ()=>{
-    if(window.location.href.match(/item\/([0-9]+)\.html/gi) && window.location.href.match(/item\/([0-9]+)\.html/gi).length == 1 && document.getElementById('codikaweb') == null){
+    if(window.location.href.match(/item\/([0-9]+)\.html/gi) && window.location.href.match(/item\/([0-9]+)\.html/gi).length == 1){
         // pour ajouter un button dans la page item-detail
 		// ex: https://www.aliexpress.com/item/1005001651482363.html
-		let id = window.location.href.substr(window.location.href.indexOf('/item/')+6,window.location.href.indexOf('.html')-window.location.href.indexOf('/item/')-6);
-        let p = document.getElementsByClassName('product-action')[0];
-        let span = document.createElement('span');
-        p.appendChild(span);
-        span.setAttribute('class',"buy-now-wrap");
-        span.setAttribute('id',"codikaweb");
-        let button = document.createElement('button');
-        span.appendChild(button);
-        button.setAttribute('class',"next-btn next-large next-btn-success buynow");
-        button.setAttribute('type',"button");
-        button.setAttribute('style',"color: white;background-color: #03a9f4;border:0px");
-        button.innerText="Add to Store";
-        button.setAttribute("onclick", `alert('id is: ${id}')`);
+        if(document.getElementById('codikaweb') == null){
+            let id = window.location.href.substr(window.location.href.indexOf('/item/')+6,window.location.href.indexOf('.html')-window.location.href.indexOf('/item/')-6);
+            let p = document.getElementsByClassName('product-action')[0];
+            let span = document.createElement('span');
+            p.appendChild(span);
+            span.setAttribute('class',"buy-now-wrap");
+            span.setAttribute('id',"codikaweb");
+            let button = document.createElement('button');
+            span.appendChild(button);
+            button.setAttribute('class',"next-btn next-large next-btn-success buynow");
+            button.setAttribute('type',"button");
+            button.setAttribute('style',"color: white;background-color: #03a9f4;border:0px");
+            button.innerText="Add to Store";
+            button.setAttribute("onclick", `alert('id is: ${id}')`);
+        }
     }else{
 		// ajouter des buttons dans le reste du site
 		// ex: https://www.aliexpress.com/
