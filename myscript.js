@@ -15,7 +15,7 @@ f = ()=>{
             button.setAttribute('type',"button");
             button.setAttribute('style',"color: white;background-color: #03a9f4;border:0px");
             button.innerText="Add to Store";
-            button.setAttribute("onclick", `alert('id is: ${id}')`);
+            button.setAttribute("onclick", `alert('id is: ${id}');window.location.href= 'http://localhost:3000/aliexpress/${id}'`);
         }
     }else{
 		// ajouter des buttons dans le reste du site
@@ -35,7 +35,7 @@ f = ()=>{
             let a=document.createElement("a");
             a.href = id;
             el.appendChild(a);
-            a.setAttribute("onclick", `alert('id is: ${id}')`);
+            a.setAttribute("onclick", `alert('id is: ${id}');window.location.href= 'http://localhost:3000/aliexpress/${id}'`);
             a.setAttribute("href", `javascript:;`);
             let div=document.createElement("button");
             a.appendChild(div);
